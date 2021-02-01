@@ -3,17 +3,15 @@ const app = express();
 const port = 8000;
 
 
-app.get("/",function(req ,res){
-    res.send("<h1>It's me_shubham_007 </h1>")
-})
+// using express router routes are there
+app.use('/', require("./routes"))
 
 
-
-
-app.listen(port, function(err){
-    if(err){
+// Express is listening port on 8000;
+app.listen(port, function (err) {
+    if (err) {
         console.log(`Error in running server: ${err}`);
         return;
     }
-    console.log('Server is running on http://localhost:8000');
+    console.log('Server is running on http://localhost:8000 :) ');
 })
