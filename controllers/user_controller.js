@@ -1,5 +1,3 @@
-module.exports.profile = function(req,res){
-    return res.end('<h1>I am calling the server form userside</h1>');
+module.exports.user = function (req, res) {
+    return res.send("<h1>This is my Profile that Im show off you</h1>")
 }
-
-// this function goes to userController.user

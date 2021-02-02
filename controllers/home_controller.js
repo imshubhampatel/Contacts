@@ -1,3 +1,3 @@
-module.exports.home = function(req,res){
-    return res.end('<h1>it me shubham 007 and codial learning</h1>');
+module.exports.home = function (req, res){
+    return res.send('<h1>This is great oppertunity for me</h1>');
 }
