@@ -1,3 +1,13 @@
-module.exports.user = function (req, res) {
-    return res.send("<h1>This is my Profile that Im show off you</h1>")
+const Contact = require("../models/contact")
+
+module.exports.database = function (req, res) {
+    Contact.find({}, function (err, contacts) {
+        if (err) {
+            console.log('error in fetching contact', err);
+            return;
+        }
+
+        return res.render('user', {myContact: contacts})
+    })
 }
+

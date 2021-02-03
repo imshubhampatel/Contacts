@@ -1,19 +1,27 @@
-const express = require('express');
+const express = require("express");
+const path = require('path');
 const app = express();
 const port = 8000;
+const db = require("./config/mongoose")
 
+// setup the static files
+app.use(express.static('assets'));
 
-// calling router at this Point
+// setting up body req reader 
+app.use(express.urlencoded());
 
-app.use("/", require("./routes"));
+//setting  up view engine ejs
+app.set('view engine' ,'ejs');
+app.set("views" , path.join(__dirname,'views'))
 
+// every routes goes in the routes folder
+app.use("/", require('./routes'));
 
-
-app.listen(port, (err) => {
-    if (err) {
-        console.log(`Error in running server is : ${port}`);
+// settiong up sever running port
+app.listen(port, (err)=>{
+    if(err) {
+        console.log(`Error in running up sever: ${err}`);
         return;
-
     }
-    console.log(`Sever is Successfylly running on http://localhost:8000`);
+    console.log('server is running on http://localhost:8000');
 })
