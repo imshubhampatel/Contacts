@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require('path');
+const chalk = require('chalk');
 const app = express();
 const port = 8000;
 const db = require("./config/mongoose")
@@ -23,5 +24,7 @@ app.listen(port, (err)=>{
         console.log(`Error in running up sever: ${err}`);
         return;
     }
-    console.log('server is running on http://localhost:8000');
+    var space = '                                                               ';
+    console.log(chalk.bgWhite.red.underline(`  Server is on port http://localhost:8000   :) =>${space}`));
+
 })
