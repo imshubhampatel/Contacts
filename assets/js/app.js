@@ -1,5 +1,4 @@
 const inputs = document.querySelectorAll(".input");
-const lists = document.querySelectorAll('.li');
 
 
 function addcl() {
