@@ -3,7 +3,7 @@ const path = require('path');
 const chalk = require('chalk');
 const app = express();
 const port = 8000;
-const db = require("./config/mongoose")
+const db = require("./config/mongoose");
 
 // setup the static files
 app.use(express.static('assets'));
@@ -12,15 +12,16 @@ app.use(express.static('assets'));
 app.use(express.urlencoded());
 
 //setting  up view engine ejs
-app.set('view engine' ,'ejs');
-app.set("views" , path.join(__dirname,'views'))
+app.set('view engine', 'ejs');
+// app.set("views", path.join(__dirname, 'views'));
+app.set("views", "./views")
 
 // every routes goes in the routes folder
 app.use("/", require('./routes'));
 
 // settiong up sever running port
-app.listen(port, (err)=>{
-    if(err) {
+app.listen(port, (err) => {
+    if (err) {
         console.log(`Error in running up sever: ${err}`);
         return;
     }
