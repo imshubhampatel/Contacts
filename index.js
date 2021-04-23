@@ -2,7 +2,6 @@ const express = require("express");
 const path = require('path');
 const chalk = require('chalk');
 const app = express();
-const port = 8000;
 const db = require("./config/mongoose");
 
 // setup the static files
@@ -20,12 +19,17 @@ app.set("views", "./views")
 app.use("/", require('./routes'));
 
 // settiong up sever running port
+
+let port = process.env.PORT;
+if (port == null || port == "") {
+    port = 3000;
+}
 app.listen(port, (err) => {
     if (err) {
         console.log(`Error in running up sever: ${err}`);
         return;
     }
     var space = '                                                               ';
-    console.log(chalk.bgWhite.red.underline(`  Server is on port http://localhost:8000   :) =>${space}`));
+    console.log(chalk.bgWhite.red.underline(`  Server is on port http://localhost:${port}}:) =>${space}`));
 
 })
