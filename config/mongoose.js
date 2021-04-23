@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const chalk = require('chalk');
-mongoose.connect("mongodb://localhost/contact_db");
+mongoose.connect("mongodb+srv://Admin-shubham:admin123@cluster0.s6i8g.mongodb.net/contact_db");
 
 db  = mongoose.connection;
 

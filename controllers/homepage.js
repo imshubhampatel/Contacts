@@ -35,6 +35,6 @@ module.exports.deleteContact = function (req, res) {
             console.log('error in deleting Contact');
             return;
         }
-        return res.redirect('/user')
+        return res.redirect('back')
     })
 }
